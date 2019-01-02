@@ -56,7 +56,7 @@ Resolver:
 
 ## Details
 
-The hook will will zip the contents of the directory and upload it as
+The hook will zip the contents of the directory and upload it as
 `sceptre/MD5HASH` to the S3-bucket, with `MD5HASH` being md5 hash of the zip
 file content.
 
