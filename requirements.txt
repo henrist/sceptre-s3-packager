@@ -1,0 +1,6 @@
+flake8>=3.6<4
+mock>=2<2.1
+moto>=1.3<2
+pytest>=4<5
+sceptre>=2<3
+tox>=3.5<4

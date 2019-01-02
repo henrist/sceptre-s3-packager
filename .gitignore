@@ -1,0 +1,17 @@
+# python
+*.pyc
+*.pyo
+*.swp
+__pycache__
+*.egg-info
+
+# tox working folder
+/.tox
+
+# builds and tests
+/build
+/dist
+/.pytest_cache
+
+# development
+/.vscode
