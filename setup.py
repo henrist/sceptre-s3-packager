@@ -16,10 +16,10 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     entry_points={
         'sceptre.hooks': [
-            'sceptre_s3_packager = sceptre_s3_packager:UploadHook',
+            'sceptre_s3_upload = sceptre_s3_packager:UploadHook',
         ],
         'sceptre.resolvers': [
-            'sceptre_s3_packager = sceptre_s3_packager:KeyResolver',
+            'sceptre_s3_key = sceptre_s3_packager:KeyResolver',
         ]
     },
     classifiers=[

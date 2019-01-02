@@ -20,13 +20,13 @@ Use the hook and resolver in your template config:
 template_path: ...
 hooks:
   before_create:
-    - !sceptre_s3_packager ./directory-to-zip-to-s3
+    - !sceptre_s3_upload ./directory-to-zip-to-s3
   before_update:
-    - !sceptre_s3_packager ./directory-to-zip-to-s3
+    - !sceptre_s3_upload ./directory-to-zip-to-s3
 sceptre_user_data:
   Code:
     S3Bucket: my-s3-bucket
-    S3Key: !sceptre_s3_packager ./directory-to-zip-to-s3
+    S3Key: !sceptre_s3_key ./directory-to-zip-to-s3
 ```
 
 Use the data in the template, e.g. by using Jinja2 template with something
@@ -45,13 +45,13 @@ like:
 
 Hook:
 
-- `!sceptre_s3_packager <directory>` (reads `S3Bucket` from
+- `!sceptre_s3_upload <directory>` (reads `S3Bucket` from
   `sceptre_user_data.Code.S3Bucket`)
-- `!sceptre_s3_packager <directory>^^<s3-bucket>`
+- `!sceptre_s3_upload <directory>^^<s3-bucket>`
 
 Resolver:
 
-- `!sceptre_s3_packager <directory>` (returns a path where the packaged
+- `!sceptre_s3_key <directory>` (returns a path where the packaged
   directory is uploaded, e.g. `sceptre/68063a99bb6d95401d688d28f19ee412`)
 
 ## Details
