@@ -16,7 +16,7 @@ pip install sceptre-s3-packager
 
 Use the hook and resolver in your template config:
 
-```
+```yaml
 template_path: ...
 hooks:
   before_create:
@@ -32,7 +32,7 @@ sceptre_user_data:
 Use the data in the template, e.g. by using Jinja2 template with something
 like:
 
-```
+```yaml
   MyLambda:
     Type: AWS::Lambda::Function
     Properties:
