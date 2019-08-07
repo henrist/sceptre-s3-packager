@@ -1,5 +1,4 @@
 import logging
-from sceptre_s3_packager.s3_packager import KeyResolver, UploadHook  # noqa: F401, E501
 
 __version__ = '0.2.0'
 __author__ = 'Henrik Steen'
