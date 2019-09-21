@@ -2,7 +2,8 @@ help:
 	@echo "lint - check style with flake8"
 	@echo "test - run tests against current environment"
 	@echo "test-all - run tests using tox"
-	@echo "install"
+	@echo "install - install as a package in current environment"
+	@echo "install-dev - install in develop mode in current environment"
 
 lint:
 	flake8 .
