@@ -12,7 +12,7 @@ class TestKeyResolver(object):
     def test_simple(self):
         key = self.key_resolver.resolve()
 
-        assert key == 'sceptre/68063a99bb6d95401d688d28f19ee412'
+        assert key == 'sceptre/55cdcd252b548216c5b4a0088de166b8'
 
 
 class TestUploadHook(object):
@@ -48,7 +48,7 @@ class TestUploadHook(object):
                 command='head_object',
                 kwargs={
                     'Bucket': 'my-bucket',
-                    'Key': 'sceptre/68063a99bb6d95401d688d28f19ee412'
+                    'Key': 'sceptre/55cdcd252b548216c5b4a0088de166b8'
                 },
             ),
             call(
@@ -56,8 +56,8 @@ class TestUploadHook(object):
                 command='put_object',
                 kwargs={
                     'Bucket': 'my-bucket',
-                    'Key': 'sceptre/68063a99bb6d95401d688d28f19ee412',
-                    'Body': b'PK\x03\x04\x14\x00\x00\x00\x00\x00\x00\x00!L\xbd\xbf\x0cg\x1e\x00\x00\x00\x1e\x00\x00\x00\x0b\x00\x00\x00my_file.txtContent for automated testing\nPK\x01\x02\x14\x03\x14\x00\x00\x00\x00\x00\x00\x00!L\xbd\xbf\x0cg\x1e\x00\x00\x00\x1e\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xb4\x81\x00\x00\x00\x00my_file.txtPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x009\x00\x00\x00G\x00\x00\x00\x00\x00'  # noqa: E501
+                    'Key': 'sceptre/55cdcd252b548216c5b4a0088de166b8',
+                    'Body': b'PK\x03\x04\x14\x00\x00\x00\x00\x00\x00\x00!L\xbd\xbf\x0cg\x1e\x00\x00\x00\x1e\x00\x00\x00\x0b\x00\x00\x00my_file.txtContent for automated testing\nPK\x01\x02\x14\x03\x14\x00\x00\x00\x00\x00\x00\x00!L\xbd\xbf\x0cg\x1e\x00\x00\x00\x1e\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xa4\x81\x00\x00\x00\x00my_file.txtPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x009\x00\x00\x00G\x00\x00\x00\x00\x00'  # noqa: E501
                 },
             )
         ])
@@ -72,7 +72,7 @@ class TestUploadHook(object):
                 command='head_object',
                 kwargs={
                     'Bucket': 'my-bucket',
-                    'Key': 'sceptre/68063a99bb6d95401d688d28f19ee412'
+                    'Key': 'sceptre/55cdcd252b548216c5b4a0088de166b8'
                 },
             ),
         ])
