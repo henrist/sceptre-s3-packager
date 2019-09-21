@@ -1,0 +1,50 @@
+version: 2.1
+
+tox-job-template: &tox-job-template
+  steps:
+    - run:
+        name: Report versions
+        command: |
+          python --version
+          pip --version
+    - checkout
+    - run:
+        name: Setup Python virtual env
+        command: python -m venv ~/venv
+    - run:
+        name: Install tox
+        command: |
+          source ~/venv/bin/activate
+          pip install --progress-bar off -r <(grep ^tox requirements.txt)
+    - run:
+        name: Unit tests
+        command: |
+          source ~/venv/bin/activate
+          tox -e $CIRCLE_JOB
+
+jobs:
+  lint:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      - run: |
+          python -m venv ~/venv
+          source ~/venv/bin/activate
+          pip install --progress-bar off -r <(grep ^flake8 requirements.txt)
+          make lint
+  py36:
+    docker:
+      - image: circleci/python:3.6
+    <<: *tox-job-template
+  py37:
+    docker:
+      - image: circleci/python:3.7
+    <<: *tox-job-template
+
+workflows:
+  test_all:
+    jobs:
+      - lint
+      - py36
+      - py37
