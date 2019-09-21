@@ -11,4 +11,4 @@ class NullHandler(logging.Handler):  # pragma: no cover
         pass
 
 
-logging.getLogger('sceptre_s3').addHandler(NullHandler())
+logging.getLogger('sceptre_s3_packager').addHandler(NullHandler())
