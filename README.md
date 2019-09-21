@@ -1,5 +1,7 @@
 # sceptre-s3-packager
 
+[![CircleCI](https://circleci.com/gh/henrist/sceptre-s3-packager.svg?style=svg)](https://circleci.com/gh/henrist/sceptre-s3-packager)
+
 Hook and resolver for [Sceptre](https://sceptre.cloudreach.com/latest/) `v2` to
 package code dependencies and uploading it to an S3 bucket for usage in a
 template.
