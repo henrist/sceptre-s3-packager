@@ -8,6 +8,8 @@ Inspired by https://github.com/cloudreach/sceptre-zip-code-s3
 
 ## Getting started
 
+Only Python 3 is actively being supported.
+
 Install using pip:
 
 ```bash
