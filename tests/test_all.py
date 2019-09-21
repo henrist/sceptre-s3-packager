@@ -1,6 +1,6 @@
 from botocore.exceptions import ClientError
 from mock import MagicMock, patch, call
-from sceptre_s3_packager import KeyResolver, UploadHook
+from sceptre_s3_packager.s3_packager import KeyResolver, UploadHook
 from sceptre.stack import Stack
 
 
