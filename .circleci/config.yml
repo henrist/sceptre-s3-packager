@@ -25,7 +25,7 @@ tox-job-template: &tox-job-template
 jobs:
   lint:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run: |
@@ -35,11 +35,11 @@ jobs:
           make lint
   py36:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
     <<: *tox-job-template
   py37:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.8
     <<: *tox-job-template
   py38:
     docker:
