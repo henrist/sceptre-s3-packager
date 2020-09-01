@@ -3,4 +3,4 @@ mock==4.0.2
 moto==1.3.14
 pytest==6.0.1
 sceptre==2.3.0
-tox==3.19.0
+tox==3.20.0
