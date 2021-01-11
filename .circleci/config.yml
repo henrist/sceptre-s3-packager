@@ -45,6 +45,10 @@ jobs:
     docker:
       - image: circleci/python:3.8
     <<: *tox-job-template
+  py39:
+    docker:
+      - image: circleci/python:3.9
+    <<: *tox-job-template
 
 workflows:
   test_all:
@@ -53,3 +57,4 @@ workflows:
       - py36
       - py37
       - py38
+      - py39
