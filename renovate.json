@@ -6,7 +6,7 @@
       "enabled": false
     },
     {
-      "packageNames": ["flake8", "mock", "moto", "pytest", "tox"],
+      "packageNames": ["flake8", "mock", "pytest", "tox"],
       "automerge": true,
       "automergeType": "branch",
       "major": {
