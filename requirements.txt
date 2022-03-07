@@ -1,5 +1,5 @@
 flake8==3.9.2
 mock==4.0.3
 pytest==6.2.5
-sceptre==2.5.0
+sceptre==2.7.1
 tox==3.23.1
