@@ -152,6 +152,7 @@ class Zipper:
 
         zinfo = zipfile.ZipInfo(arcname, (2018, 1, 1, 0, 0, 0))
         zinfo.external_attr = (st[0] & 0xFFFF) << 16  # Unix attributes
+        zinfo.compress_type = compression
 
         content = self.read_file(filename)
 
