@@ -1,0 +1,40 @@
+name: ci
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python_version.version }}
+
+      - run: pip install -r <(grep ^flake8 requirements.txt)
+
+      - run: make lint
+
+  test:
+    strategy:
+      matrix:
+        python_version:
+          - version: 3.6
+            env: py36
+          - version: 3.7
+            env: py37
+          - version: 3.8
+            env: py38
+          - version: 3.9
+            env: py39
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python_version.version }}
+
+      - run: pip install -r <(grep ^tox requirements.txt)
+
+      - run: tox -e ${{ matrix.python_version.env }}
