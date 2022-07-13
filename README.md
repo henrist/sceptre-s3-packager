@@ -1,6 +1,5 @@
 # sceptre-s3-packager
 
-[![CircleCI](https://circleci.com/gh/henrist/sceptre-s3-packager.svg?style=svg)](https://circleci.com/gh/henrist/sceptre-s3-packager)
 [![PyPI version](https://badge.fury.io/py/sceptre-s3-packager.svg)](https://badge.fury.io/py/sceptre-s3-packager)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/sceptre-s3-packager)
 
