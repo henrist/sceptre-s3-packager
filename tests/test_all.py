@@ -12,7 +12,7 @@ class TestKeyResolver(object):
     def test_simple(self):
         key = self.key_resolver.resolve()
 
-        assert key == 'sceptre/55cdcd252b548216c5b4a0088de166b8'
+        assert key == 'sceptre/cecb78751d7974922597a40276eea5fd'
 
 
 class TestUploadHook(object):
@@ -48,7 +48,7 @@ class TestUploadHook(object):
                 command='head_object',
                 kwargs={
                     'Bucket': 'my-bucket',
-                    'Key': 'sceptre/55cdcd252b548216c5b4a0088de166b8'
+                    'Key': 'sceptre/cecb78751d7974922597a40276eea5fd'
                 },
             ),
             call(
@@ -56,8 +56,8 @@ class TestUploadHook(object):
                 command='put_object',
                 kwargs={
                     'Bucket': 'my-bucket',
-                    'Key': 'sceptre/55cdcd252b548216c5b4a0088de166b8',
-                    'Body': b'PK\x03\x04\x14\x00\x00\x00\x00\x00\x00\x00!L\xbd\xbf\x0cg\x1e\x00\x00\x00\x1e\x00\x00\x00\x0b\x00\x00\x00my_file.txtContent for automated testing\nPK\x01\x02\x14\x03\x14\x00\x00\x00\x00\x00\x00\x00!L\xbd\xbf\x0cg\x1e\x00\x00\x00\x1e\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xa4\x81\x00\x00\x00\x00my_file.txtPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x009\x00\x00\x00G\x00\x00\x00\x00\x00'  # noqa: E501
+                    'Key': 'sceptre/cecb78751d7974922597a40276eea5fd',
+                    'Body': b'PK\x03\x04\x14\x00\x00\x00\x08\x00\x00\x00!L\x8a\xa4"z#\x00\x00\x00x\x00\x00\x00\x0b\x00\x00\x00my_file.txts\xce\xcf+I\xcd+QH\xcb/RH,-\xc9\xcfM,IMQ(I-.\xc9\xccK\xe7r\xa6\x99,\x00PK\x01\x02\x14\x03\x14\x00\x00\x00\x08\x00\x00\x00!L\x8a\xa4"z#\x00\x00\x00x\x00\x00\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xa4\x81\x00\x00\x00\x00my_file.txtPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x009\x00\x00\x00L\x00\x00\x00\x00\x00'  # noqa: E501
                 },
             )
         ])
@@ -72,7 +72,7 @@ class TestUploadHook(object):
                 command='head_object',
                 kwargs={
                     'Bucket': 'my-bucket',
-                    'Key': 'sceptre/55cdcd252b548216c5b4a0088de166b8'
+                    'Key': 'sceptre/cecb78751d7974922597a40276eea5fd'
                 },
             ),
         ])
