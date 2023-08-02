@@ -49,9 +49,9 @@ class UploadHook(Hook):
         super(UploadHook, self).__init__(*args, **kwargs)
 
     def run(self):
-        src_dir, s3_bucket = self.get_arguments()
+        zip_target, s3_bucket = self.get_arguments()
 
-        content = Zipper().zip_dir(src_dir)
+        content = Zipper().zip_content(zip_target)
 
         md5 = hashlib.new('md5')
         md5.update(content)
@@ -59,7 +59,7 @@ class UploadHook(Hook):
         s3_key = get_s3_name(md5)
 
         self.logger.debug('{} resolved to s3://{}/{}'.format(
-            src_dir, s3_bucket, s3_key
+            zip_target, s3_bucket, s3_key
         ))
 
         # The docs say this is available on the Stack instance, but it
@@ -86,7 +86,7 @@ class UploadHook(Hook):
                 raise e
 
             self.logger.debug('putting {} to s3://{}/{}'.format(
-                src_dir, s3_bucket, s3_key
+                zip_target, s3_bucket, s3_key
             ))
 
             connection_manager.call(
@@ -100,7 +100,7 @@ class UploadHook(Hook):
             )
 
             self.logger.debug('s3://{}/{} put for {}'.format(
-                s3_bucket, s3_key, src_dir
+                s3_bucket, s3_key, zip_target
             ))
 
     def get_arguments(self):
@@ -122,6 +122,14 @@ class UploadHook(Hook):
 class Zipper:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+
+    def zip_content(self, zip_target):
+        if os.path.isdir(zip_target):
+            self.logger.debug('zipping directory {}'.format(zip_target))
+            return self.zip_dir(zip_target)
+        elif os.path.isfile(zip_target):
+            self.logger.debug('zipping file {}'.format(zip_target))
+            return self.read_file(zip_target)
 
     def zip_dir(self, dirpath):
         files = sorted([
